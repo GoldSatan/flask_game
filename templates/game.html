@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+
+{% block header %}
+
+<style>
+	.rows .cols:nth-child(4) {
+		display: none;
+	}
+</style>
+
+ 	{% if session['if_win'] == 'no' %}
+		<title>BG | Вітаємо у грі!</title>
+		
+	{% elif session['if_win'] == 'yes' %}
+		<title>BG | Вітаємо з перемогою!</title>
+	
+	{% endif %}
+{% endblock %}
+
+
+
+{% block body %}
+
+
+	<div class="game">
+		<div class="who_step">
+			<p>Now, step is: {{ session['who_step'] }}</p>
+		</div>
+		{% if session['if_win'] == 'yes'  %}
+			<div class="win">
+				<h1>ПЕРЕМОЖЕЦЬ - {{ session['win'] }}</h1>
+				<a class="restart">Розпочати заново?</a>
+			</div>
+		{% else %}
+			<div class="win" style="display: none;">
+				<h1></h1>
+				<a class="restart"></a>
+			</div>
+
+		{% endif %}
+		<div class="main_grid">
+			<div class="row_cell">
+				<div class="cell cell_1 active_{{ session['cells'][0][0] }}">
+					<div class="cross">
+						<div class="cls_1"></div>
+						<div class="cls_2"></div>
+					</div>
+					<div class="circle"></div>
+				</div>
+				<div class="cell cell_2 active_{{ session['cells'][0][1] }}">
+					<div class="cross">
+						<div class="cls_1"></div>
+						<div class="cls_2"></div>
+					</div>
+					<div class="circle"></div>
+				</div>
+				<div class="cell cell_3 active_{{ session['cells'][0][2] }}">
+					<div class="cross">
+						<div class="cls_1"></div>
+						<div class="cls_2"></div>
+					</div>
+					<div class="circle"></div>
+				</div>
+			</div>
+			<div class="row_cell">
+				<div class="cell cell_4 active_{{ session['cells'][1][0] }}">
+					<div class="cross">
+						<div class="cls_1"></div>
+						<div class="cls_2"></div>
+					</div>
+					<div class="circle"></div>
+				</div>
+				<div class="cell cell_5 active_{{ session['cells'][1][1] }}">
+					<div class="cross">
+						<div class="cls_1"></div>
+						<div class="cls_2"></div>
+					</div>
+					<div class="circle"></div>
+				</div>
+				<div class="cell cell_6 active_{{ session['cells'][1][2] }}">
+					<div class="cross">
+						<div class="cls_1"></div>
+						<div class="cls_2"></div>
+					</div>
+					<div class="circle"></div>
+				</div>
+			</div>
+			<div class="row_cell">
+				<div class="cell cell_7 active_{{ session['cells'][2][0] }}">
+					<div class="cross">
+						<div class="cls_1"></div>
+						<div class="cls_2"></div>
+					</div>
+					<div class="circle"></div>
+				</div>
+				<div class="cell cell_8 active_{{ session['cells'][2][1] }}">
+					<div class="cross">
+						<div class="cls_1"></div>
+						<div class="cls_2"></div>
+					</div>
+					<div class="circle"></div>
+				</div>
+				<div class="cell cell_9 active_{{ session['cells'][2][2] }}">
+					<div class="cross">
+						<div class="cls_1"></div>
+						<div class="cls_2"></div>
+					</div>
+					<div class="circle"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+{% endblock %}
